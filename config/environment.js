@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'login-test-app',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -16,6 +16,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    sassOptions: {
+      includePaths: ['bower_components/materialize/sass']
     }
   };
 
@@ -41,6 +44,16 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
+  }
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none' 'unsafe-inline'",
+    'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
+    'font-src': "'self'",
+    'connect-src': "'self'",
+    'img-src': "'self'",
+    'style-src': "'self' 'unsafe-inline'",
+    'media-src': "'self'",
   }
 
   return ENV;

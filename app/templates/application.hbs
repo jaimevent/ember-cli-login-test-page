@@ -1,3 +1,13 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div class="container">
+  <div class="row">
+    <h2 class="col s12" id="title">Login testpage</h2>
+    <p class="col s12">When the browser asks to save your login-information, hit yes.</p>
 
-{{outlet}}
+    <form id="test-form" class='col s12' {{action 'validate' on='submit'}} novalidate>
+      {{materialize-input value=username label='E-Mail'}}
+      {{materialize-input type='password' value=thepassword label='Password'}}
+
+      {{materialize-button-submit text='Login' class='col s12 m8 offset-m2'}}
+    </form>
+  </div>
+</div>
